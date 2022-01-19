@@ -10,7 +10,7 @@ class Solution {
         }
         
         for(int candie:candies){
-            if((candie+extraCandies)>largest ||(candie+extraCandies) == largest){
+            if((candie+extraCandies)>=largest){
                 result.add(true);
             }else{
                 result.add(false);
