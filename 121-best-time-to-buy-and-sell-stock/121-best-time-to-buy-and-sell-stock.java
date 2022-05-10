@@ -1,22 +1,20 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int brought=prices[0];
-        int ans=0;
+        int l=0,r=1;
+        int maxProfit=0;
         int n=prices.length;
-        for(int i=1;i<n;i++){
-            if(prices[i]>brought ){
-                if(ans<(prices[i]-brought)){
-                    ans=prices[i]-brought;
+        while(r<n){
+            if(prices[l]<prices[r]){
+                int price=prices[r]-prices[l];
+                if(price>maxProfit){
+                    maxProfit=price;
                 }
+                
             }else{
-                brought=prices[i];
+                l=r;
             }
+            r++;
         }
-        
-       
-        return ans;
-        
-        
-        
+        return maxProfit;
     }
 }
