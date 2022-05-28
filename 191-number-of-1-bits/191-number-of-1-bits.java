@@ -1,11 +1,11 @@
 public class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-        String value=Integer.toBinaryString(n);
-        int count=0;
-        for(char c:value.toCharArray()){
-            if(c=='1') count++;
-        }
-        return count;
+        n = n - ((n >>> 1) & 0x55555555);
+        n = (n & 0x33333333) + ((n >>> 2) & 0x33333333);
+        n = (n + (n >>> 4)) & 0x0f0f0f0f;
+        n = n + (n >>> 8);
+        n = n + (n >>> 16);
+        return n & 0x3f;
     }
 }
